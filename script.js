@@ -28,7 +28,7 @@ function adicionarItemNaLista() {
         btnRemover.innerHTML = "Remover"
         
         btnRemover.onclick = function () {
-            label.parentNode.remove()
+            this.closest("li").remove()
         }
         
         ul.appendChild(label)
