@@ -27,37 +27,30 @@ function adicionarItemNaLista() {
         btnRemover.setAttribute('class', 'btnRemover')
         btnRemover.innerHTML = "Remover"
         
-        btnRemover.onclick = function () {
-            this.closest("li").remove()
-        }
-        
         ul.appendChild(label)
         li.appendChild(label)
         label.appendChild(checkbox)
         label.appendChild(textNode)
-        
         li.appendChild(btnRemover)
-        
         ul.insertBefore(li, ul.childNodes[0])
         setTimeout(() => {
             li.className = 'visual'
         },5)
         input.value = " "
         input.focus()
+        
+        btnRemover.onclick = function () {
+          this.closest("li").remove()
+        }
     }
 }
 document.addEventListener("click", (e) => {
-
     const targetEl = e.target
     const parentEl = targetEl.closest("label")
-
-
     if(targetEl.classList.contains("checked")){
-        
         parentEl.classList.toggle("checked")
     }
 })
-
 document.addEventListener('keypress', function(e){
     if(e.keyCode== 13){
         adicionarItemNaLista();
